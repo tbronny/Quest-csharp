@@ -23,7 +23,7 @@ namespace Quest
                 $"What is the current second?", DateTime.Now.Second, 50);
 
             int randomNumber = new Random().Next() % 10;
-            Challenge guessRandom = new Challenge("What number am I thinking of?", randomNumber, 25);
+            Challenge guessRandom = new Challenge($"What number am I thinking of?", randomNumber, 25);
 
             Challenge favoriteBeatle = new Challenge(
                 @"Who's your favorite Beatle?
@@ -45,7 +45,7 @@ namespace Quest
             int maxAwesomeness = 100;
 
             // Make a new "Adventurer" object using the "Adventurer" class
-            Adventurer theAdventurer = new Adventurer("Jack");
+            Adventurer theAdventurer = new Adventurer();
 
             // A list of challenges for the Adventurer to complete
             // Note we can use the List class here because have the line "using System.Collections.Generic;" at the top of the file.
@@ -77,6 +77,16 @@ namespace Quest
             else
             {
                 Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
+            }
+
+            Console.Write("Would you like to play again? (Y/N): ");
+            string userInput = Console.ReadLine().ToLower();
+            if (userInput == "y")
+            {
+                foreach (Challenge challenge in challenges)
+                {
+                    challenge.RunChallenge(theAdventurer);
+                }
             }
         }
     }
