@@ -29,12 +29,15 @@ namespace Quest
         {
             Console.Write($"{_text}: ");
             string answer = Console.ReadLine();
+            var currentTime = DateTime.Now.Second;
+
 
             int numAnswer;
             bool isNumber = int.TryParse(answer, out numAnswer);
+            int actualAnswer = _text == "What is the current second?" ? currentTime : _correctAnswer;
 
             Console.WriteLine();
-            if (isNumber && numAnswer == _correctAnswer)
+            if (isNumber && numAnswer == actualAnswer)
             {
                 Console.WriteLine("Well Done!");
 

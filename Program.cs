@@ -15,6 +15,8 @@ namespace Quest
             //   a correct answer
             //   a number of awesome points to gain or lose depending on the success of the challenge
             Console.Write("What is your name?: ");
+            var userName = Console.ReadLine();
+            Adventurer theAdventurer = new Adventurer(userName);
 
             Challenge twoPlusTwo = new Challenge("2 + 2?", 4, 10);
             Challenge theAnswer = new Challenge(
@@ -45,7 +47,8 @@ namespace Quest
             int maxAwesomeness = 100;
 
             // Make a new "Adventurer" object using the "Adventurer" class
-            Adventurer theAdventurer = new Adventurer();
+
+            // Robe theRobe = new Robe()
 
             // A list of challenges for the Adventurer to complete
             // Note we can use the List class here because have the line "using System.Collections.Generic;" at the top of the file.
@@ -61,6 +64,7 @@ namespace Quest
             // Loop through all the challenges and subject the Adventurer to them
             foreach (Challenge challenge in challenges)
             {
+                Console.WriteLine(DateTime.Now.Second);
                 challenge.RunChallenge(theAdventurer);
             }
 
